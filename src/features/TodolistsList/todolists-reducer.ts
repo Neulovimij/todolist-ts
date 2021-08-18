@@ -1,12 +1,6 @@
 import {todolistsAPI, TodolistType} from '../../api/todolists-api'
 import {Dispatch} from 'redux'
-import {
-    RequestStatusType,
-    setAppErrorAC,
-    SetAppErrorActionType,
-    setAppStatusAC,
-    SetAppStatusActionType
-} from "../../app/app-reducer";
+import {RequestStatusType, SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType} from "../../app/app-reducer";
 import {AxiosError} from "axios";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 
@@ -48,7 +42,6 @@ export const setTodolistsAC = (todolists: Array<TodolistType>) => ({type: 'SET-T
 export const changeTodolistEntityStatusAC = (id: string, entityStatus: RequestStatusType) =>
     ({type: 'CHANGE-TODOLIST-ENTITY-STATUS', id, entityStatus} as const)
 export type ChangeTodolistEntityStatusActionType = ReturnType<typeof changeTodolistEntityStatusAC>
-
 
 // thunks
 export const fetchTodolistsTC = () => {
@@ -99,7 +92,6 @@ export const changeTodolistTitleTC = (id: string, title: string) => {
             })
     }
 }
-
 
 // types
 export type AddTodolistActionType = ReturnType<typeof addTodolistAC>;
